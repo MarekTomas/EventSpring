@@ -6,5 +6,31 @@
 </head>
 <body>
 <h1>Hello World!</h1>
+<a href ="/registration">Registration</a>
+<br/>
+<a href ="/login">Login</a>
+	<p>Event </p>
+	<table>
+		<tr>
+			<th>Id</th>
+			<th>Title</th>
+			<th>Content</th>
+			<th>StartDate</th>
+			<th>StartTime</th>
+			<th>EndTime</th>
+			
+		</tr>
+		<!-- Wyświetlanie wszystkich elementów listy cars w tabeli -->
+		<tr th:each="event : ${event}">
+			<td th:text="${event.id}"></td>
+			<td th:text="${event.title}"></td>
+			<td th:text="${event.content}"></td>
+			<td th:text="${event.startDate}"></td>
+			<td th:text="${event.startTime}"></td>
+			<td th:text="${event.endTime}"></td>
+		</tr>
+	</table>
+
+	
 </body>
 </html>
