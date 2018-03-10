@@ -13,9 +13,6 @@ public class Event {
 	private long id;
 	private String title;
 	private String content;
-	private String startDate;
-	private String startTime;
-	private String endTime;
 	public long getId() {
 		return id;
 	}
@@ -34,39 +31,18 @@ public class Event {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public String getStartDate() {
-		return startDate;
+	@Override
+	public String toString() {
+		return "Event [id=" + id + ", title=" + title + ", content=" + content + "]";
 	}
-	public void setStartDate(String startDate) {
-		this.startDate = startDate;
-	}
-	public String getStartTime() {
-		return startTime;
-	}
-	public void setStartTime(String startTime) {
-		this.startTime = startTime;
-	}
-	public String getEndTime() {
-		return endTime;
-	}
-	public void setEndTime(String endTime) {
-		this.endTime = endTime;
-	}
-	public Event() {
-	}
-	public Event(long id, String title, String content, String startDate, String startTime, String endTime) {
+	public Event(long id, String title, String content) {
 		this.id = id;
 		this.title = title;
 		this.content = content;
-		this.startDate = startDate;
-		this.startTime = startTime;
-		this.endTime = endTime;
 	}
-	@Override
-	public String toString() {
-		return "Event [id=" + id + ", title=" + title + ", content=" + content + ", startDate=" + startDate
-				+ ", startTime=" + startTime + ", endTime=" + endTime + "]";
+	public Event() {
 	}
+	
 	
 	
 }

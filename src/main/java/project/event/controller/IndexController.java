@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import java.util.List;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import project.event.model.Event;
 import project.event.service.EventService;
 
@@ -17,6 +16,7 @@ public class IndexController {
 	@Autowired
 	public IndexController( EventService eventService) {
 		this.eventService = eventService;
+
 	}
 	
 	@RequestMapping("/")
@@ -32,13 +32,9 @@ public class IndexController {
 		return "index";
 	}
 	
-	@RequestMapping("/registration")
-	public String registration() {
-		return"registration";
-	}
-	
+
 	@RequestMapping("/login")
 	public String login() {
-		return"registration";
+		return"login";
 	}
 }

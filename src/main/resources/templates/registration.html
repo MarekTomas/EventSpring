@@ -1,10 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8"/>
+<meta charset="UTF-8" />
 <title>registration</title>
 </head>
 <body>
-<p>registrtion</p>
+	<h1>registrtion</h1>
+	<form th:action="@{/registration}" method="post" th:object="${user}">
+		<p>name</p>
+		<input type="text" th:field="*{name}" />
+		<p>surname</p>
+		<input type="text" th:field="*{surname}" />
+		<p>login</p>
+		<input type="text" th:field="*{login}" />
+		<p>password</p>
+		<input type="text" th:field="*{password}" /> <input type="submit"
+			value="Add" />
+	</form>
+
+	<form th:action="@{/logout}" method="post">
+		<input type="submit" value="Logout" />
+	</form>
 </body>
 </html>
