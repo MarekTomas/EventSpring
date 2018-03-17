@@ -7,5 +7,7 @@ import project.event.model.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
+	
+	User findOneByEmail(String email);
 
 }

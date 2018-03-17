@@ -37,4 +37,8 @@ public class IndexController {
 	public String login() {
 		return"login";
 	}
+	@RequestMapping("/nowy")
+	public String nowy() {
+		return"nowy";
+	}
 }

@@ -2,23 +2,34 @@
 <html>
 <head>
 <meta charset="UTF-8" />
+<link rel="stylesheet" href="styles/style.css" type="text/css"/>
 <title>registration</title>
 </head>
 <body>
 	<h1>registrtion</h1>
 	<form th:action="@{/registration}" method="post" th:object="${user}">
-		<p>name</p>
-		<input type="text" th:field="*{name}" />
-		<p>surname</p>
-		<input type="text" th:field="*{surname}" />
-		<p>login</p>
-		<input type="text" th:field="*{login}" />
-		<p>password</p>
-		<input type="text" th:field="*{password}" /> <input type="submit"
-			value="Add" />
+		<p>Name</p>
+			<input type="text" th:field="*{name}" placeholder="Input Name"/>
+			<br/>
+			<label th:if="${#fields.hasErrors('name')}" th:errors="*{email}" class="validation-message"></label>
+		<p>Surname</p>
+			<input type="text" th:field="*{surname}" placeholder="Input surname" />
+			<br/>
+			<label th:if="${#fields.hasErrors('surname')}" th:errors="*{email}" class="validation-message"></label>
+		<p>E-mail</p>l
+			<input type="text" th:field="*{email}" placeholder="Input Email"/>
+			<br/>
+			<label th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="validation-message"></label>
+		<p>Password</p>
+			<input type="text" th:field="*{password}" placeholder="Input Password" /> 
+			<br/>
+			<label th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="validation-message"></label>
+			<br/>
+			<input type="submit" value="Add" />
 	</form>
 
 	<form th:action="@{/logout}" method="post">
+	<br/>
 		<input type="submit" value="Logout" />
 	</form>
 </body>

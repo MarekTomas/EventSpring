@@ -1,15 +1,27 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8"/>
-<title>Login</title>
-</head>
-<body>
-<h1>login</h1>
-<p>Login</p><input type="text"/>
-<p>Password</p><input type="text"/>
-<br/>
-<hr/>
-<a href="/registration">registration</a>
-</body>
+	<head>
+	<link rel="stylesheet" href="styles/style.css" type="text/css"/>
+	<meta charset="UTF-8"/>
+	<title>Login</title>
+	</head>
+		<body>
+			<h1>login</h1>
+				<form th:action="@{/login}" method="post">
+				<div>
+					<p> Email</p><input type="text" name="Email" placeholder="Input Email"/>
+					<br/>
+				</div>
+				<div>
+					<p>Password</p>
+					<input type="password" name="password" placeholder="Input Password"/>
+					<br/>
+				</div>
+					<input type="submit" value="login"/>
+				</form>
+			<br/>
+			<hr/>
+			<a href="/registration">registration</a>
+			<a href="/nowy">nowy</a>
+		</body>
 </html>

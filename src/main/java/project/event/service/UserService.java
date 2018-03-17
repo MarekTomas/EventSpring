@@ -21,4 +21,8 @@ public class UserService {
 		System.out.println("savedUser :" + savedUser);
 		return savedUser;
 	}
+	
+	public boolean isNewUserExists(String email) {
+		return userRepository.findOneByEmail(email) != null;
+	}
 }
