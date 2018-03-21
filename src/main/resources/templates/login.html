@@ -1,27 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 	<head>
-	<link rel="stylesheet" href="styles/style.css" type="text/css"/>
+	<link type="text/css" href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet" media="screen"/>
 	<meta charset="UTF-8"/>
 	<title>Login</title>
 	</head>
 		<body>
-			<h1>login</h1>
+			<div th:replace="fragments/header :: header"></div>
+			<div class="content">
 				<form th:action="@{/login}" method="post">
 				<div>
 					<p> Email</p><input type="text" name="Email" placeholder="Input Email"/>
 					<br/>
 				</div>
 				<div>
-					<p>Password</p>
-					<input type="password" name="password" placeholder="Input Password"/>
+					<p>Password</p><input type="password" name="password" placeholder="Input Password"/>
 					<br/>
 				</div>
 					<input type="submit" value="login"/>
 				</form>
 			<br/>
-			<hr/>
 			<a href="/registration">registration</a>
 			<a href="/nowy">nowy</a>
+			</div>
+		<footer>
+			<p class = "footer"> Create by @Marek Tomasik</p>
+		</footer>
 		</body>
 </html>

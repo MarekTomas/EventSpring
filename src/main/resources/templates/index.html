@@ -1,41 +1,50 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8"/>
-<link rel="stylesheet" href="styles/style.css" type="text/css"/>
+<link type="text/css" href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet" media="screen"/>
+
+
 <title>Insert title here</title>
 </head>
 <body>
+<div class="wrapper">
 	<header>
-		<h1 >Hello World!</h1>
-		 <a href ="/login">Login</a>
+		<div th:replace="fragments/header :: header"></div>
 	</header>
-	<main>
-	<p>Event </p>
 	
-		<table width="60%" align="center">
-			<tr>
-				<th>Id</th>
-				<th>Title</th>
-				<th>Content</th>
-				<th>Term</th>
-				<th>timeStart</th>
-				<th>timeEnd</th>
-				
-			</tr>
-			<!-- Wyświetlanie wszystkich elementów listy cars w tabeli -->
-			<tr th:each="event : ${event}">
-				<td th:text="${event.id}">Id</td>
-				<td th:text="${event.title}">Title</td>
-				<td th:text="${event.content}">Content</td>
-				<td th:text="${event.term}">term</td>
-				<td th:text="${event.timeStart}">timeStart</td>
-				<td th:text="${event.timeEnd}">timeEnd</td>
-				
-				
-			</tr>
-		</table>
+	
+		<div class="content">
+				<h2>Events: </h2>
+		
+			<table align="center">
+				<tr>
+					<th>Id</th>
+					<th>Title</th>
+					<th>Content</th>
+					<th>Term</th>
+					<th>timeStart</th>
+					<th>timeEnd</th>
+					
+				</tr>
+				<!-- Wyświetlanie wszystkich elementów listy cars w tabeli -->
+				<tr th:each="event : ${event}">
+					<td th:text="${event.id}">Id</td>
+					<td th:text="${event.title}">Title</td>
+					<td th:text="${event.content}">Content</td>
+					<td th:text="${event.term}">term</td>
+					<td th:text="${event.tstart}">timeStart</td>
+					<td th:text="${event.tend}">timeEnd</td>
+					
+					
+				</tr>
+			</table>
+		</div>
 
-	</main>
+	
+	<footer>
+		<p class = "footer"> Create by @Marek Tomasik</p>
+	</footer>
+</div>
 </body>
 </html>

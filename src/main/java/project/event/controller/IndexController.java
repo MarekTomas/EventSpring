@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import java.util.List;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import project.event.model.Event;
 import project.event.service.EventService;
 
@@ -14,12 +14,12 @@ public class IndexController {
 	private EventService eventService;
 	
 	@Autowired
-	public IndexController( EventService eventService) {
+	public IndexController( @Autowired EventService eventService) {
 		this.eventService = eventService;
 
 	}
 	
-	@RequestMapping("/")
+	@GetMapping("/")
 	public String index(Model model) {
 		
 		List<Event> event = eventService.findAll();
@@ -27,17 +27,17 @@ public class IndexController {
 		return "index";
 	}
 
-	@RequestMapping("/index")
+	@GetMapping("/index")
 	public String index1() {
 		return "index";
 	}
 	
 
-	@RequestMapping("/login")
+	@GetMapping("/login")
 	public String login() {
 		return"login";
 	}
-	@RequestMapping("/nowy")
+	@GetMapping("/nowy")
 	public String nowy() {
 		return"nowy";
 	}

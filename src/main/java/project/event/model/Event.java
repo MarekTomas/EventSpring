@@ -1,6 +1,7 @@
 package project.event.model;
 
 
+import java.sql.Time;
 import java.util.Date;
 
 
@@ -14,16 +15,16 @@ public class Event {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private int id;
 	private String title;
 	private String content;
 	private Date term;
-	private String timeStart;
-	private String timeEnd;
+	private Time tstart;
+	private Time tend;
 	public long getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getTitle() {
@@ -44,34 +45,35 @@ public class Event {
 	public void setTerm(Date term) {
 		this.term = term;
 	}
-	public String getTimeStart() {
-		return timeStart;
+	public Time getTstart() {
+		return tstart;
 	}
-	public void setTimeStart(String timeStart) {
-		this.timeStart = timeStart;
+	public void setTstart(Time tstart) {
+		this.tstart = tstart;
 	}
-	public String getTimeEnd() {
-		return timeEnd;
+	public Time getTend() {
+		return tend;
 	}
-	public void setTimeEnd(String timeEnd) {
-		this.timeEnd = timeEnd;
+	public void setTend(Time tend) {
+		this.tend = tend;
 	}
-	public Event(long id, String title, String content, Date term, String timeStart, String timeEnd) {
+	public Event(int id, String title, String content, Date term, Time tstart, Time tend) {
 		this.id = id;
 		this.title = title;
 		this.content = content;
 		this.term = term;
-		this.timeStart = timeStart;
-		this.timeEnd = timeEnd;
+		this.tstart = tstart;
+		this.tend = tend;
 	}
 	public Event() {
 	}
-	
 	@Override
 	public String toString() {
-		return "Event [id=" + id + ", title=" + title + ", content=" + content + ", term=" + term + ", timeStart="
-				+ timeStart + ", timeEnd=" + timeEnd + "]";
+		return "Event [id=" + id + ", title=" + title + ", content=" + content + ", term=" + term + ", tstart=" + tstart
+				+ ", tend=" + tend + "]";
 	}
-
+	
+	
+	
 	
 }
