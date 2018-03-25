@@ -5,8 +5,11 @@ import org.springframework.stereotype.Repository;
 import project.event.model.Event;
 
 
+
 @Repository
 public interface EventRepository extends JpaRepository<Event, Long> {
+	
+	Event findOneByTitle(String title);
 
 	
 }

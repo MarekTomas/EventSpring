@@ -1,7 +1,7 @@
 package project.event.service;
 
-import java.util.List;
 
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,9 +20,24 @@ public class EventService {
 	}
 	
 	public List<Event> findAll() {
-		//wywołanie metody findAll z repozytorium dla tebeli event
 		List<Event> event = eventRepository.findAll();
 		return event;
+	}
+	public boolean isNewEventExists(String title) {
+		return eventRepository.findOneByTitle(title) != null;
+	}
+	
+	public Event save(Event event) {
+		event.setTitle(new String() );
+		return eventRepository.save(event);
+	}
+	
+	public void deleteEvent(Long id) {
+		eventRepository.delete(id);
+		
+	}
+	public Event getArticleById(Long id) {
+		return eventRepository.findOne(id);
 	}
 	
 	

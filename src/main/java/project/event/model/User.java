@@ -20,7 +20,7 @@ public class User {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Long id;
 	
 	@Email(message="{project.event.email}")
 	@NotEmpty(message="{project.event.notEmpty}")
@@ -31,7 +31,7 @@ public class User {
 	
 	@NotEmpty(message="{project.event.notEmpty}")
 	private String surname;
-	
+	@NotEmpty(message="{project.event.notEmpty}")
 	@Length(min=8, message="{project.event.password.length}")
 	private String password;
 	
@@ -41,11 +41,11 @@ public class User {
 	@JoinTable(name="user_role")
 	private Set<Role> roles;
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -103,7 +103,7 @@ public class User {
 				+ password + ", active=" + active + ", roles=" + roles + "]";
 	}
 
-	public User(int id, String email, String name, String surname, String password, boolean active,
+	public User(Long id, String email, String name, String surname, String password, boolean active,
 			Set<project.event.model.Role> roles) {
 		this.id = id;
 		this.email = email;

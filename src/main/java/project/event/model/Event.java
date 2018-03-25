@@ -10,21 +10,34 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
+
 @Entity
 public class Event {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Long id;
+	
+	@NotEmpty(message="{project.event.notEmpty}")
 	private String title;
+	
+	@NotEmpty(message="{project.event.notEmpty}")
 	private String content;
+	
+	@DateTimeFormat(iso=ISO.DATE)
 	private Date term;
+	
 	private Time tstart;
+	
 	private Time tend;
+	
 	public long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getTitle() {
@@ -57,7 +70,7 @@ public class Event {
 	public void setTend(Time tend) {
 		this.tend = tend;
 	}
-	public Event(int id, String title, String content, Date term, Time tstart, Time tend) {
+	public Event(Long id, String title, String content, Date term, Time tstart, Time tend) {
 		this.id = id;
 		this.title = title;
 		this.content = content;

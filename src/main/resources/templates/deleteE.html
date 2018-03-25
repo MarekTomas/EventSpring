@@ -2,18 +2,14 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8" />
-<link type="text/css" href="../static/css/style.css"
-	th:href="@{css/style.css}" rel="stylesheet" media="screen" />
-
-
-<title>Insert title here</title>
+<link type="text/css" href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet" media="screen" />
+<title>Add</title>
 </head>
 <body>
 	<div class="wrapper">
-
-		<div th:replace="fragments/header :: header"></div>
-
-
+		<header>
+			<div th:replace="fragments/header :: header"></div>
+		</header>
 
 		<div class="content">
 			<h2>Events:</h2>
@@ -26,6 +22,7 @@
 					<th>Term</th>
 					<th>timeStart</th>
 					<th>timeEnd</th>
+					
 
 				</tr>
 				<tr th:each="event : ${event}">
@@ -35,12 +32,12 @@
 					<td th:text="${event.term}">term</td>
 					<td th:text="${event.tstart}">timeStart</td>
 					<td th:text="${event.tend}">timeEnd</td>
-
-
+					<td th:if="${isAdmin}"><a
+						th:href="${'/event/deleteE/' + event.id}">Delete</a></td>
+					
 				</tr>
 			</table>
 		</div>
-
 
 		<footer>
 			<p class="footer">Create by @Marek Tomasik</p>

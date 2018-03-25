@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<link type="text/css" href="../static/css/style.css"
+	th:href="@{css/style.css}" rel="stylesheet" media="screen" />
+<title>AboutMe</title>
+</head>
+<body>
+	<div class="wrapper">
+
+		<div th:replace="fragments/header :: header"></div>
+
+
+		<div class="ab">
+			<br />
+
+			<p>Interesuje mnie możliwość dalszej nauki oraz doskonalenia
+				umiejętności zdobytych w ramach kursu Back-end Developer, Reaktor
+				PWN. Poprzez współpracę z doświadczonym zespołem programistów chcę
+				poszerzać swoje kompetencje i zdobyć doświadczenie w zakresie
+				programowania w języku Java.</p>
+
+			<p>Back-end Developer Reaktor PWN 12.2017</p>
+			<ul>
+				<li><a>Programowanie w języku Python, Java</a></li>
+				<li><a>System kontrolu wersji GIT oraz platforma GitHub</a></li>
+				<li><a>Projektowanie oraz wykorzystywanie relacyjnych baz
+						danych MYSQL</a></li>
+				<li><a>Technologie Front-end: XML,HTML, CSS, JavaScript,
+						JQuery</a></li>
+				<li><a>Framework Spring</a></li>
+				<li><a>Dobre praktyki programowania m in. definicje,
+						konwencje, struktura danych, obsługa błędów, hermetyzacja</a></li>
+			</ul>
+
+		</div>
+
+		<footer>
+			<p class="footer">Create by @Marek Tomasik</p>
+		</footer>
+	</div>
+</body>
+</html>

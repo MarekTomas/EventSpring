@@ -10,8 +10,11 @@
 			<nav>
 				<ul class="menu">
 					<li><a href ="/">Home</a></li>
-					<li><a href ="/login">O mnie</a></li>
-					<li ><a href ="/login">Login</a></li>
+					<li><a href ="/aboutMe">About Me</a></li>
+					<li><a href ="/login">Login</a></li>
+					<li th:if="${isAdmin}"><a href="/addE" th:href="@{/addE}"> AddEvent </a></li>
+					<li th:if="${isAdmin}"><a href="/deleteE" th:href="@{/deleteE}"> DeleteEvent </a></li>
+				
 					
 				</ul>
 			</nav>

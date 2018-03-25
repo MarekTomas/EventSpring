@@ -2,7 +2,7 @@ create database Event;
 use Event;
 
 create table event(
-id INT AUTO_INCREMENT primary key,
+id bigint(20) AUTO_INCREMENT primary key,
 title VARCHAR(250) not null,
 content VARCHAR(250) not null,
 term date,
@@ -11,7 +11,7 @@ tend time not null
 );
 
 create table user(
-id INT auto_increment primary key,
+id int(11) AUTO_INCREMENT primary key,
 active boolean default true,
 email VARCHAR(250) not null,
 name VARCHAR(250) not null,
@@ -20,12 +20,12 @@ password VARCHAR(250) not null
 );
 
 create table role(
-id INT primary key,
+id int(11) primary key,
 name VARCHAR(250) default 'user'
 );
 
 create table user_role(
-user_id INT primary key,
+user_id int(11) primary key,
 roles_id int
 );
 
@@ -51,7 +51,7 @@ insert into user_role(user_id,roles_id) value(2,2);
 
 Select email, password, active from user where email = 'user';
 
-select u.email, u.name from user u inner join user_role ur on u.id=ur.user_id inner join role r on r.id=ur.roles_id where email = 'user';
+select u.email, u.name from user u inner join user_role ur on u.id=ur.user_id inner join role r on r.id=ur.roles_id where email = 'admin';
 
 
 select * from event;
