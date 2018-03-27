@@ -12,8 +12,9 @@
 					<li><a href ="/">Home</a></li>
 					<li><a href ="/aboutMe">About Me</a></li>
 					<li><a href ="/login">Login</a></li>
-					<li th:if="${isAdmin}"><a href="/addE" th:href="@{/addE}"> AddEvent </a></li>
-					<li th:if="${isAdmin}"><a href="/deleteE" th:href="@{/deleteE}"> DeleteEvent </a></li>
+					<li th:if="${isAdmin}"><a href="/admin/addE" th:href="@{/admin/addE}"> AddEvent </a></li>
+					<li th:if="${isAdmin}"><a href="/admin/deleteE" th:href="@{/admin/deleteE}"> DeleteEvent </a></li>
+					<li th:if="${isAdmin}"><a href="/admin/deleteU" th:href="@{/admin/deleteU}"> DeleteUser </a></li>
 				
 					
 				</ul>

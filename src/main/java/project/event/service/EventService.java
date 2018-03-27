@@ -1,6 +1,7 @@
 package project.event.service;
 
 
+import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,7 +29,7 @@ public class EventService {
 	}
 	
 	public Event save(Event event) {
-		event.setTitle(new String() );
+		event.setTerm(new Date() );
 		return eventRepository.save(event);
 	}
 	
@@ -36,7 +37,7 @@ public class EventService {
 		eventRepository.delete(id);
 		
 	}
-	public Event getArticleById(Long id) {
+	public Event getEventById(Long id) {
 		return eventRepository.findOne(id);
 	}
 	

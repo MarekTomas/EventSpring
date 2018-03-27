@@ -4,7 +4,7 @@ package project.event.model;
 import java.sql.Time;
 import java.util.Date;
 
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,11 +14,13 @@ import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 
+
 @Entity
 public class Event {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name ="id")
 	private Long id;
 	
 	@NotEmpty(message="{project.event.notEmpty}")
@@ -34,7 +36,7 @@ public class Event {
 	
 	private Time tend;
 	
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 	public void setId(Long id) {
@@ -85,6 +87,7 @@ public class Event {
 		return "Event [id=" + id + ", title=" + title + ", content=" + content + ", term=" + term + ", tstart=" + tstart
 				+ ", tend=" + tend + "]";
 	}
+	
 	
 	
 	

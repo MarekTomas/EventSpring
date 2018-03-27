@@ -18,4 +18,15 @@ public class AuthenticationComponent {
 		}
 		return false;
 }
+	public boolean isAnonymous() {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		return auth != null && auth.isAuthenticated() && "anonymousUser".equals(auth.getName());
+	}
+	
+	public String loginUser() {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		return auth.getName();
+	}
+	
+
 }

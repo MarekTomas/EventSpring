@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<link type="text/css" href="../static/css/style.css"
+	th:href="@{/css/style.css}" rel="stylesheet" media="screen" />
+
+<title>Add</title>
+</head>
+<body>
+	<div class="wrapper">
+		<div th:replace="fragments/header :: header"></div>
+		<div class="content">
+			<form th:action="@{/admin/addE}" method="post" th:object="${event}">
+				<p>Title</p>
+				<input type="text" th:field="*{title}" placeholder="Input Title" />
+				<br /> <label th:if="${#fields.hasErrors('title')}"
+					th:errors="*{title}" class="validation-message"></label>
+
+				<p>Content</p>
+				<input type="text" th:field="*{content}" placeholder="Input Content" />
+				<br /> <label th:if="${#fields.hasErrors('content')}"
+					th:errors="*{content}" class="validation-message"></label>
+
+				<p>Term</p>
+				<input type="text" th:field="*{term}" placeholder="Input Term" /> <br />
+				<label th:if="${#fields.hasErrors('term')}" th:errors="*{term}"
+					class="validation-message"></label>
+
+				<p>Time Start</p>
+				<input type="text" th:field="*{tstart}"
+					placeholder="Input Time Start" /> <br /> <label
+					th:if="${#fields.hasErrors('tstart')}" th:errors="*{tstart}"
+					class="validation-message"> </label>
+
+				<p>Time End</p>
+				<input type="text" th:field="*{tend}" placeholder="Input Time End" />
+				<br /> <label th:if="${#fields.hasErrors('tend')}"
+					th:errors="*{tend}" class="validation-message"></label> <br /> <input
+					type="submit" value="Add" />
+			</form>
+		</div>
+		<footer>
+			<p class="footer">Create by @Marek Tomasik</p>
+		</footer>
+	</div>
+</body>
+</html>

@@ -1,5 +1,7 @@
 package project.event.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,8 +10,11 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
+import project.event.security.AuthenticationComponent;
 import project.event.model.User;
 import project.event.service.UserService;
 
@@ -17,14 +22,17 @@ import project.event.service.UserService;
 public class UserController {
 	
 	private UserService userService;
+	private AuthenticationComponent authentication;
 	
 	@Autowired
-	public UserController(UserService userService) {
+	public UserController(UserService userService, AuthenticationComponent authentication) {
 		this.userService = userService;
+		this.authentication = authentication;
 	}
 	
 	@GetMapping("/registration")
 	public String registration(Model model) {
+		model.addAttribute("isAdmin", authentication.isAdmin());
 		model.addAttribute("user",new User());
 		return"registration";
 	}
@@ -41,6 +49,27 @@ public class UserController {
 		
 		userService.save(user);
 		return "redirect:/";
+	}
+	
+
+	@GetMapping("/{id}")
+	public String deleteU(@PathVariable Long id,Model model) {
+		model.addAttribute("isAdmin", authentication.isAdmin());
+		model.addAttribute("user", userService.getUserById(id));
+		return"admin/deleteU";
+	}
+	@GetMapping("/deleteU/{id}")
+	public String deleteU(@PathVariable Long id) {
+		userService.deleteUser(id);
+		return "redirect:/admin/deleteU";
+	}
+	
+	@GetMapping("/deleteU")
+	public String deleteU(Model model) {
+		model.addAttribute("isAdmin", authentication.isAdmin());
+		List<User> user = userService.findAll();
+		model.addAttribute("user", user);
+		return "admin/deleteU";
 	}
 
 }

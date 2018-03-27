@@ -2,11 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <link type="text/css" href="../static/css/style.css"
-	th:href="@{css/style.css}" rel="stylesheet" media="screen" />
+	th:href="@{/css/style.css}" rel="stylesheet" media="screen" />
 <meta charset="UTF-8" />
 <title>Login</title>
 </head>
 <body>
+<div class="wrapper">
 	<div th:replace="fragments/header :: header"></div>
 	<div class="content">
 		<form th:action="@{/login}" method="post">
@@ -25,13 +26,14 @@
 		<form th:action="@{/logout}" method="post">
 			<br /> <input type="submit" value="Logout" />
 		</form>
-
-		<br /> <a href="/registration">Registration</a>
-
+		<div class="menu">
+		<br /> <a  href="/registration">REGISTRATION</a>
+		</div>
 	</div>
 
 	<footer>
 		<p class="footer">Create by @Marek Tomasik</p>
 	</footer>
+	</div>
 </body>
 </html>

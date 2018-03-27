@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8" />
-<link type="text/css" href="../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet" media="screen" />
+<link type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" media="screen" />
 <title>Add</title>
 </head>
 <body>
@@ -22,7 +22,7 @@
 					<th>Term</th>
 					<th>timeStart</th>
 					<th>timeEnd</th>
-					
+					<th th:if="${isAdmin}">Delete</th>
 
 				</tr>
 				<tr th:each="event : ${event}">
@@ -33,7 +33,7 @@
 					<td th:text="${event.tstart}">timeStart</td>
 					<td th:text="${event.tend}">timeEnd</td>
 					<td th:if="${isAdmin}"><a
-						th:href="${'/event/deleteE/' + event.id}">Delete</a></td>
+						th:href="${'/admin/deleteE/' + event.id}">Delete</a></td>
 					
 				</tr>
 			</table>

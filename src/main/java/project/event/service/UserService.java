@@ -1,6 +1,7 @@
 package project.event.service;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,5 +35,15 @@ public class UserService {
 	
 	public boolean isNewUserExists(String email) {
 		return userRepository.findOneByEmail(email) != null;
+	}
+	public void deleteUser(Long id) {
+		userRepository.delete(id);
+	}
+	public User getUserById(Long id) {
+		return userRepository.findOne(id);
+	}
+	public List<User> findAll() {
+		List<User> user = userRepository.findAll();
+		return user;
 	}
 }

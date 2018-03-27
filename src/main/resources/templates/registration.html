@@ -3,37 +3,39 @@
 <head>
 <meta charset="UTF-8" />
 <link type="text/css" href="../static/css/style.css"
-	th:href="@{css/style.css}" rel="stylesheet" media="screen" />
+	th:href="@{/css/style.css}" rel="stylesheet" media="screen" />
 <title>registration</title>
 </head>
 <body>
-	<div th:replace="fragments/header :: header"></div>
-	<div class="content">
-		<form th:action="@{/registration}" method="post" th:object="${user}">
-			<p>Name</p>
-			<input type="text" th:field="*{name}" placeholder="Input Name" /> <br />
-			<label th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
-				class="validation-message"></label>
-			<p>Surname</p>
-			<input type="text" th:field="*{surname}" placeholder="Input surname" />
-			<br /> <label th:if="${#fields.hasErrors('surname')}"
-				th:errors="*{surname}" class="validation-message"></label>
-			<p>E-mail</p>
-			<input type="text" th:field="*{email}" placeholder="Input Email" /> <br />
-			<label th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
-				class="validation-message"></label>
-			<p>Password</p>
-			<input type="text" th:field="*{password}"
-				placeholder="Input Password" /> <br /> <label
-				th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
-				class="validation-message"></label> <br /> <input type="submit"
-				value="Add" />
-		</form>
+	<div class="wrapper">
+		<div th:replace="fragments/header :: header"></div>
+		<div class="content">
+			<form th:action="@{/registration}" method="post" th:object="${user}">
+				<p>Name</p>
+				<input type="text" th:field="*{name}" placeholder="Input Name" /> <br />
+				<label th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
+					class="validation-message"></label>
+				<p>Surname</p>
+				<input type="text" th:field="*{surname}" placeholder="Input surname" />
+				<br /> <label th:if="${#fields.hasErrors('surname')}"
+					th:errors="*{surname}" class="validation-message"></label>
+				<p>E-mail</p>
+				<input type="text" th:field="*{email}" placeholder="Input Email" />
+				<br /> <label th:if="${#fields.hasErrors('email')}"
+					th:errors="*{email}" class="validation-message"></label>
+				<p>Password</p>
+				<input type="text" th:field="*{password}"
+					placeholder="Input Password" /> <br /> <label
+					th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
+					class="validation-message"></label> <br /> <input type="submit"
+					value="Add" />
+			</form>
 
 
+		</div>
+		<footer>
+			<p class="footer">Create by @Marek Tomasik</p>
+		</footer>
 	</div>
-	<footer>
-		<p class="footer">Create by @Marek Tomasik</p>
-	</footer>
 </body>
 </html>

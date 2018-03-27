@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<link type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" media="screen" />
+<title>DeleteU</title>
+</head>
+<body>
+	<div class="wrapper">
+		<header>
+			<div th:replace="fragments/header :: header"></div>
+		</header>
+
+		<div class="content">
+			<h2>User:</h2>
+
+			<table align="center">
+				<tr>
+					<th>Id</th>
+					<th>Email</th>
+					<th>Name</th>
+					<th>Surname</th>
+					<th>Password</th>
+					
+		
+
+				</tr>
+				<tr th:each="user : ${user}">
+					<td th:text="${user.id}">Id</td>
+					<td th:text="${user.email}">Name</td>
+					<td th:text="${user.name}">Name</td>
+					<td th:text="${user.surname}">Surname</td>
+					<td th:text="${user.password}">Password</td>
+					<td th:if="${isAdmin}"><a
+						th:href="${'/deleteU/' + user.id}">Delete</a></td>
+					
+				</tr>
+			</table>
+		</div>
+
+		<footer>
+			<p class="footer">Create by @Marek Tomasik</p>
+		</footer>
+	</div>
+</body>
+</html>
