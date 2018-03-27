@@ -32,7 +32,7 @@
 					<td th:text="${user.surname}">Surname</td>
 					<td th:text="${user.password}">Password</td>
 					<td th:if="${isAdmin}"><a
-						th:href="${'/deleteU/' + user.id}">Delete</a></td>
+						th:href="${'/adminU/deleteU/' + user.id}">Delete</a></td>
 					
 				</tr>
 			</table>

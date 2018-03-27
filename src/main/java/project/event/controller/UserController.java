@@ -19,6 +19,7 @@ import project.event.model.User;
 import project.event.service.UserService;
 
 @Controller
+@RequestMapping("/adminU")
 public class UserController {
 	
 	private UserService userService;
@@ -56,12 +57,13 @@ public class UserController {
 	public String deleteU(@PathVariable Long id,Model model) {
 		model.addAttribute("isAdmin", authentication.isAdmin());
 		model.addAttribute("user", userService.getUserById(id));
-		return"admin/deleteU";
+		return"adminU/deleteU";
 	}
 	@GetMapping("/deleteU/{id}")
 	public String deleteU(@PathVariable Long id) {
 		userService.deleteUser(id);
-		return "redirect:/admin/deleteU";
+		
+		return "redirect:/adminU/deleteU";
 	}
 	
 	@GetMapping("/deleteU")
@@ -69,7 +71,7 @@ public class UserController {
 		model.addAttribute("isAdmin", authentication.isAdmin());
 		List<User> user = userService.findAll();
 		model.addAttribute("user", user);
-		return "admin/deleteU";
+		return "adminU/deleteU";
 	}
 
 }
