@@ -29,11 +29,6 @@ public class IndexController {
 		return "index";
 	}
 
-	@GetMapping("/index")
-	public String index1() {
-		return "index";
-	}
-	
 	@GetMapping("/login")
 	public String login(Model model) {
 		model.addAttribute("isAdmin", authentication.isAdmin());

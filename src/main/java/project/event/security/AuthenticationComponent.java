@@ -17,16 +17,15 @@ public class AuthenticationComponent {
 			return "Admin".equalsIgnoreCase(grantedAuthority.getAuthority());
 		}
 		return false;
-}
-	public boolean isAnonymous() {
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		return auth != null && auth.isAuthenticated() && "anonymousUser".equals(auth.getName());
 	}
-	
-	public String loginUser() {
+
+	public boolean isUser() {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		return auth.getName();
+		Collection<? extends GrantedAuthority> authorities = auth.getAuthorities();
+		for (GrantedAuthority grantedAuthority : authorities) {
+			return "User".equalsIgnoreCase(grantedAuthority.getAuthority());
+		}
+		return false;
 	}
-	
 
 }

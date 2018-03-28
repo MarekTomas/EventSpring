@@ -36,6 +36,10 @@ public class Event {
 	
 	private Time tend;
 	
+	private String adres;
+	
+	private int price; 
+	
 	public Long getId() {
 		return id;
 	}
@@ -72,21 +76,38 @@ public class Event {
 	public void setTend(Time tend) {
 		this.tend = tend;
 	}
-	public Event(Long id, String title, String content, Date term, Time tstart, Time tend) {
+	
+	public String getAdres() {
+		return adres;
+	}
+	public void setAdres(String adres) {
+		this.adres = adres;
+	}
+	public int getPrice() {
+		return price;
+	}
+	public void setPrice(int price) {
+		this.price = price;
+	}
+	public Event(Long id, String title, String content, Date term, Time tstart, Time tend, String adres, int price) {
 		this.id = id;
 		this.title = title;
 		this.content = content;
 		this.term = term;
 		this.tstart = tstart;
 		this.tend = tend;
+		this.adres = adres;
+		this.price = price;
 	}
 	public Event() {
 	}
 	@Override
 	public String toString() {
 		return "Event [id=" + id + ", title=" + title + ", content=" + content + ", term=" + term + ", tstart=" + tstart
-				+ ", tend=" + tend + "]";
+				+ ", tend=" + tend + ", adres=" + adres + ", price=" + price + "]";
 	}
+	
+	
 	
 	
 	

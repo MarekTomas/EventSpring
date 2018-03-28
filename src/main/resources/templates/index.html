@@ -22,17 +22,21 @@
 					<th>Title</th>
 					<th>Content</th>
 					<th>Term</th>
-					<th>timeStart</th>
-					<th>timeEnd</th>
+					<th>TimeStart</th>
+					<th>TimeEnd</th>
+					<th>Adres</th>
+					<th>Price (zł)</th>
 
 				</tr>
 				<tr th:each="event : ${event}">
 					<td th:text="${event.id}">Id</td>
 					<td th:text="${event.title}">Title</td>
 					<td th:text="${event.content}">Content</td>
-					<td th:text="${event.term}">term</td>
-					<td th:text="${event.tstart}">timeStart</td>
-					<td th:text="${event.tend}">timeEnd</td>
+					<td th:text="${event.term}">Term</td>
+					<td th:text="${event.tstart}">TimeStart</td>
+					<td th:text="${event.tend}">TimeEnd</td>
+					<td th:text="${event.adres}">adres</td>
+					<td th:text="${event.price}">price</td>
 
 
 				</tr>

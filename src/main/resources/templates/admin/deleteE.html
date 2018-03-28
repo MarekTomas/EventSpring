@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <link type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" media="screen" />
-<title>Add</title>
+<title>DeleteEvent</title>
 </head>
 <body>
 	<div class="wrapper">
@@ -22,16 +22,22 @@
 					<th>Term</th>
 					<th>timeStart</th>
 					<th>timeEnd</th>
+					<th>Adres</th>
+					<th>Price (zł)</th>
 					<th th:if="${isAdmin}">Delete</th>
+					<th th:if="${isUser}">Sign in </th>
 
 				</tr>
 				<tr th:each="event : ${event}">
 					<td th:text="${event.id}">Id</td>
 					<td th:text="${event.title}">Title</td>
 					<td th:text="${event.content}">Content</td>
-					<td th:text="${event.term}">term</td>
-					<td th:text="${event.tstart}">timeStart</td>
-					<td th:text="${event.tend}">timeEnd</td>
+					<td th:text="${event.term}">Term</td>
+					<td th:text="${event.tstart}">TimeStart</td>
+					<td th:text="${event.tend}">TimeEnd</td>
+					<td th:text="${event.adres}">Adres</td>
+					<td th:text="${event.price}">Price</td>
+					
 					<td th:if="${isAdmin}"><a
 						th:href="${'/admin/deleteE/' + event.id}">Delete</a></td>
 					
