@@ -4,9 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
 import project.event.security.AuthenticationComponent;
 
 @Controller
+@RequestMapping("/user")
 public class UserController {
 	
 	private AuthenticationComponent authentication;
@@ -19,7 +22,7 @@ public class UserController {
 	@GetMapping("/userProfile")
 	public String userProfile(Model model) {
 		model.addAttribute("isUser", authentication.isUser());
-		return "userProfile";
+		return "user/userProfile";
 		
 	}
 	

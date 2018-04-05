@@ -36,81 +36,93 @@ public class Event {
 	
 	private Time tend;
 	
-	private String adres;
+	private String address;
 	
-	private int price; 
-	
+	private int price;
+
 	public Long getId() {
 		return id;
 	}
+
 	public void setId(Long id) {
 		this.id = id;
 	}
+
 	public String getTitle() {
 		return title;
 	}
+
 	public void setTitle(String title) {
 		this.title = title;
 	}
+
 	public String getContent() {
 		return content;
 	}
+
 	public void setContent(String content) {
 		this.content = content;
 	}
+
 	public Date getTerm() {
 		return term;
 	}
+
 	public void setTerm(Date term) {
 		this.term = term;
 	}
+
 	public Time getTstart() {
 		return tstart;
 	}
+
 	public void setTstart(Time tstart) {
 		this.tstart = tstart;
 	}
+
 	public Time getTend() {
 		return tend;
 	}
+
 	public void setTend(Time tend) {
 		this.tend = tend;
 	}
-	
-	public String getAdres() {
-		return adres;
+
+	public String getAddress() {
+		return address;
 	}
-	public void setAdres(String adres) {
-		this.adres = adres;
+
+	public void setAddress(String address) {
+		this.address = address;
 	}
+
 	public int getPrice() {
 		return price;
 	}
+
 	public void setPrice(int price) {
 		this.price = price;
 	}
-	public Event(Long id, String title, String content, Date term, Time tstart, Time tend, String adres, int price) {
+
+	@Override
+	public String toString() {
+		return "Event [id=" + id + ", title=" + title + ", content=" + content + ", term=" + term + ", tstart=" + tstart
+				+ ", tend=" + tend + ", address=" + address + ", price=" + price + "]";
+	}
+
+	public Event(Long id, String title, String content, Date term, Time tstart, Time tend, String address, int price) {
 		this.id = id;
 		this.title = title;
 		this.content = content;
 		this.term = term;
 		this.tstart = tstart;
 		this.tend = tend;
-		this.adres = adres;
+		this.address = address;
 		this.price = price;
 	}
+
 	public Event() {
-	}
-	@Override
-	public String toString() {
-		return "Event [id=" + id + ", title=" + title + ", content=" + content + ", term=" + term + ", tstart=" + tstart
-				+ ", tend=" + tend + ", adres=" + adres + ", price=" + price + "]";
-	}
-	
-	
-	
-	
-	
+	} 
 	
 	
 }

@@ -21,6 +21,7 @@
 					<th>Name</th>
 					<th>Surname</th>
 					<th>Password</th>
+					<th>Role</th>
 					
 		
 
@@ -31,6 +32,7 @@
 					<td th:text="${user.name}">Name</td>
 					<td th:text="${user.surname}">Surname</td>
 					<td th:text="${user.password}">Password</td>
+					<td th:text="${user.roles}">Role</td>
 					<td th:if="${isAdmin}"><a
 						th:href="${'/adminU/deleteU/' + user.id}">Delete</a></td>
 					

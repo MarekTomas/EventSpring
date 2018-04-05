@@ -15,9 +15,7 @@
 					<li th:if="${isAdmin}"><a href="/admin/addE" th:href="@{/admin/addE}"> AddEvent </a></li>
 					<li th:if="${isAdmin}"><a href="/admin/deleteE" th:href="@{/admin/deleteE}"> DeleteEvent </a></li>
 					<li th:if="${isAdmin}"><a href="/adminU/deleteU" th:href="@{/adminU/deleteU}"> DeleteUser </a></li>
-					<li> <!-- th:if="${isUser}"> --><a href="/user/userProfile" th:href="@{/user/userProfile}"> UserProfile </a></li>
-					
-				
+					<li th:if="${isUser}"><a href="/user/userProfile" th:href="@{/user/userProfile}"> UserProfile </a></li>
 					
 				</ul>
 			</nav>
